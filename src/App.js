@@ -1,9 +1,10 @@
-import { Fragment } from "react";
 import { createGlobalStyle } from 'styled-components';
 import reset from "styled-reset";
-import Footer from "./components/Footer/Footer";
-
-import Header from "./components/Header/Header";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import DetailPage from './pages/DetailPage';
+import SoolDetail from './pages/SoolDetail';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -11,11 +12,13 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <Fragment>
-      <GlobalStyle />
-      <Header />
-      <Footer />
-    </Fragment>
+    <Router>
+      <Routes>
+        <Route path='/' element={MainPage()} />
+        <Route path='/detail' element={DetailPage()} />
+        <Route path='/:id' element={SoolDetail()} />
+      </Routes>
+    </Router>
   );
 }
 
