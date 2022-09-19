@@ -1,22 +1,15 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from "styled-reset";
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import MainPage from './pages/MainPage';
-import DetailPage from './pages/DetailPage';
-import SoolDetail from './pages/SoolDetail';
+import LoginPage from './pages/LoginPage';
 
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-`;
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={MainPage()} />
-        <Route path='/detail' element={DetailPage()} />
-        <Route path='/:id' element={SoolDetail()} />
+        <Route exact path='/' element={<MainPage />} />
+        <Route path='/login' element={<LoginPage/>} />
       </Routes>
     </Router>
   );
