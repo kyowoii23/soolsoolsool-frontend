@@ -1,15 +1,23 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
 
-export default function BasicRating() {
-  const [value, setValue] = React.useState(3);
+export default function BasicRating({ratingValue}) {
+  let value = ratingValue;
+
+  const style = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  }
 
   return (
-    <Box>
-      <Rating name="read-only" value={value} readOnly />
-      <Typography component="legend">review 20</Typography>
+    <Box style={style}>
+      <Rating
+        name="read-only"
+        value={value}
+        readOnly
+      />
     </Box>
   );
 }

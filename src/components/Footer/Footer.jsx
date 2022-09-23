@@ -3,7 +3,7 @@ import logo from '../../assets/soolsoolsool.png';
 const Footer = () => {
     return (
         
-<footer className="p-4 sm:p-6 bg-sool-footer">
+<footer className="p-4 sm:p-6 bg-sool-footer mt-20">
     <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
             <a href="https://flowbite.com/" className="flex items-center">

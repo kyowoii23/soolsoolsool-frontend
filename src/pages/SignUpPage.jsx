@@ -1,7 +1,5 @@
 import React from "react";
 import MyFormHelperText from "../components/Login/MyFormHelperText";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -16,7 +14,6 @@ import Container from "@mui/material/Container";
 function SignUpPage() {
   return (
     <>
-      <Header />
       <Container component="main" maxWidth="xs" sx={{marginBottom: 18}}>
         <Box
           sx={{
@@ -97,7 +94,6 @@ function SignUpPage() {
           </Button>
         </Box>
       </Container>
-      <Footer />
     </>
   );
 }
