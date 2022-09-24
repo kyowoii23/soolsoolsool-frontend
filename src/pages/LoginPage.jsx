@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -16,7 +14,6 @@ import MyFormHelperText from "../components/Login/MyFormHelperText";
 function LoginPage() {
   return (
     <>
-      <Header />
       <Container component="main" maxWidth="xs" sx={{marginBottom: 18}}>
         <Box
           sx={{
@@ -71,7 +68,6 @@ function LoginPage() {
           </Grid>
         </Box>
       </Container>
-      <Footer />
     </>
   );
 }
