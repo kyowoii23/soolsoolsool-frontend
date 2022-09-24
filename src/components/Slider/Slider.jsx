@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-// import ProductCard from "../Card/MainCard";
-import SubCard from "../Card/SubCard";
+import MainCard from "../Card/MainCard";
 
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
@@ -89,7 +88,7 @@ class ProductSlider extends Component {
           {this.state.slides.map((slide, index) => {
             return (
               <div key={index}>
-                <SubCard imgSrc={slide.img} />
+                <MainCard imgSrc={slide.img} />
               </div>
             );
           })}
