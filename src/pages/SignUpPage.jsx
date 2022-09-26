@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import MyFormHelperText from "../components/Login/MyFormHelperText";
 
 import TextField from "@mui/material/TextField";
@@ -11,10 +12,83 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
+
 function SignUpPage() {
+  const [userId, setUserId] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [nickName, setNickName] = useState("");
+
+  const [userIdError, setUserIdError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [firstNameError, setFirstNameError] = useState(false);
+  const [lastNameError, setLastNameError] = useState(false);
+  const [nickNameError, setNickNameError] = useState(false);
+
+  const onChangeUserId = (e) => {
+    const userIdRegex =
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    if (!e.target.value || userIdRegex.test(e.target.value)) {
+      setUserIdError(false);
+    } else {
+      setUserIdError(true);
+      setUserId(e.target.value);
+    }
+  };
+
+  useEffect(() => {
+    if (userPassword.length > 0) {
+      setUserPassword((currentValue) => currentValue);
+
+      const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+
+      if (!userPassword || passwordRegex.test(userPassword)) {
+        setPasswordError(false);
+      } else {
+        setPasswordError(true);
+      }
+    }
+  }, [userPassword]);
+
+  const onChangeConfirmPassword = (e) => {
+    if (userPassword !== e.target.value) {
+      setConfirmPasswordError(true);
+    } else {
+      setConfirmPasswordError(false);
+    }
+  };
+
+  const onChangeFirstName = (e) => {
+    if (!e.target.value) {
+      setFirstNameError(true);
+    } else {
+      setFirstNameError(false);
+      setFirstName(e.target.value);
+    }
+  };
+  const onChangeLastName = (e) => {
+    if (!e.target.value) {
+      setLastNameError(true);
+    } else {
+      setLastNameError(false);
+      setLastName(e.target.value);
+    }
+  };
+  const onChangeNickName = (e) => {
+    if (!e.target.value) {
+      setNickNameError(true);
+    } else {
+      setNickNameError(false);
+      setNickName(e.target.value);
+    }
+  };
+
   return (
     <>
-      <Container component="main" maxWidth="xs" sx={{marginBottom: 18}}>
+      <Container component="main" maxWidth="xs" sx={{ marginBottom: 18 }}>
         <Box
           sx={{
             marginTop: 8,
@@ -33,10 +107,12 @@ function SignUpPage() {
             name="email"
             label="Email Address"
             helperText={<MyFormHelperText name="email" />}
-            autoComplete="email"
             margin="normal"
+            autoFocus
             required
             fullWidth
+            onChange={onChangeUserId}
+            error={userIdError && true}
           />
           <TextField
             type="password"
@@ -44,9 +120,10 @@ function SignUpPage() {
             label="Password"
             helperText={<MyFormHelperText name="password" />}
             margin="normal"
-            autoComplete="current-password"
             required
             fullWidth
+            onChange={(e) => setUserPassword(e.target.value)}
+            error={passwordError && true}
           />
           <TextField
             type="password"
@@ -54,36 +131,40 @@ function SignUpPage() {
             label="Confirm Password"
             helperText={<MyFormHelperText name="password to confirm" />}
             margin="normal"
-            autoComplete="current-password"
             required
             fullWidth
+            onChange={onChangeConfirmPassword}
+            error={confirmPasswordError && true}
           />
           <TextField
             name="firstname"
             label="First Name"
             helperText={<MyFormHelperText name="first name" />}
             margin="normal"
-            autoComplete="off"
             required
             fullWidth
+            onChange={onChangeFirstName}
+            error={firstNameError && true}
           />
           <TextField
             name="lastname"
             label="Last Name"
             helperText={<MyFormHelperText name="last name" />}
             margin="normal"
-            autoComplete="off"
             required
             fullWidth
+            onChange={onChangeLastName}
+            error={lastNameError && true}
           />
           <TextField
             name="nickname"
             label="Nickname"
             helperText={<MyFormHelperText name="nickname" />}
             margin="normal"
-            autoComplete="off"
             required
             fullWidth
+            onChange={onChangeNickName}
+            error={nickNameError && true}
           />
           <FormControlLabel
             control={<CheckBox value="remember" color="primary" />}

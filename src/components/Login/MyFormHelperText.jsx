@@ -8,7 +8,7 @@ const MyFormHelperText = ({name}) => {
 
   const helperText = useMemo(() => {
     if (focused) {
-      return <div>Please enter your {name}</div>;
+      return <p>Please enter your {name}</p>;
     }
 
     return 

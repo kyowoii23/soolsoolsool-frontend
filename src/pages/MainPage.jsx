@@ -1,9 +1,6 @@
 import React from "react";
 import styled from '@emotion/styled';
 
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-
 import Slider from '../components/Slider/Slider';
 import MainTopSection from "../section/MainSection/MainTopSection";
 
@@ -25,14 +22,12 @@ const Container = styled.div`
 const MainPage = () => {
     return (
         <>
-            <Header />
             <Main>
                 <Container>
                     <MainTopSection />
                     <Slider />
                 </Container>
             </Main>
-            <Footer />
         </>
     )
 };
