@@ -12,7 +12,6 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
-
 function SignUpPage() {
   const [userId, setUserId] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -26,6 +25,20 @@ function SignUpPage() {
   const [firstNameError, setFirstNameError] = useState(false);
   const [lastNameError, setLastNameError] = useState(false);
   const [nickNameError, setNickNameError] = useState(false);
+
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+
+  const submitValidationHandler = () => {
+    if (checked === false) {
+      alert("check is required");
+    } else {
+      console.log("ok");
+    }
+  };
 
   const onChangeUserId = (e) => {
     const userIdRegex =
@@ -106,8 +119,9 @@ function SignUpPage() {
           <TextField
             name="email"
             label="Email Address"
-            helperText={<MyFormHelperText name="email" />}
+            helperText={<MyFormHelperText name="email" invalid={userIdError} />}
             margin="normal"
+            autoComplete="off"
             autoFocus
             required
             fullWidth
@@ -118,7 +132,9 @@ function SignUpPage() {
             type="password"
             name="password"
             label="Password"
-            helperText={<MyFormHelperText name="password" />}
+            helperText={
+              <MyFormHelperText name="password" invalid={passwordError} />
+            }
             margin="normal"
             required
             fullWidth
@@ -129,7 +145,12 @@ function SignUpPage() {
             type="password"
             name="check_password"
             label="Confirm Password"
-            helperText={<MyFormHelperText name="password to confirm" />}
+            helperText={
+              <MyFormHelperText
+                name="confirmPassword"
+                invalid={confirmPasswordError}
+              />
+            }
             margin="normal"
             required
             fullWidth
@@ -139,8 +160,11 @@ function SignUpPage() {
           <TextField
             name="firstname"
             label="First Name"
-            helperText={<MyFormHelperText name="first name" />}
+            helperText={
+              <MyFormHelperText name="firstName" invalid={firstNameError} />
+            }
             margin="normal"
+            autoComplete="off"
             required
             fullWidth
             onChange={onChangeFirstName}
@@ -149,8 +173,11 @@ function SignUpPage() {
           <TextField
             name="lastname"
             label="Last Name"
-            helperText={<MyFormHelperText name="last name" />}
+            helperText={
+              <MyFormHelperText name="lastName" invalid={lastNameError} />
+            }
             margin="normal"
+            autoComplete="off"
             required
             fullWidth
             onChange={onChangeLastName}
@@ -159,18 +186,33 @@ function SignUpPage() {
           <TextField
             name="nickname"
             label="Nickname"
-            helperText={<MyFormHelperText name="nickname" />}
+            helperText={
+              <MyFormHelperText name="nickName" invalid={nickNameError} />
+            }
             margin="normal"
+            autoComplete="off"
             required
             fullWidth
             onChange={onChangeNickName}
             error={nickNameError && true}
           />
           <FormControlLabel
-            control={<CheckBox value="remember" color="primary" />}
+            control={
+              <CheckBox
+                color="primary"
+                onChange={handleChange}
+                checked={checked}
+              />
+            }
             label="I accept Terms of Use and Privacy Policy."
           />
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3 }}>
+          <Button
+            type="submit"
+            onClick={submitValidationHandler}
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3 }}
+          >
             Join us
           </Button>
         </Box>
