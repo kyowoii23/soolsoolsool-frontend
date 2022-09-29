@@ -44,11 +44,11 @@ const Header = () => {
             </div>
             <div className="h-16 xl:container xl:mx-auto">
                 <nav className="w-19/20 mx-auto h-16 flex items-center">
-                    <a href="/recommand" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Wines</a>
-                    <a href="/recommand" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Pairings</a>
-                    <a href="/recommand" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Grapes</a>
-                    <a href="/recommand" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Regions</a>
-                    <a href="/recommand" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Awards</a>
+                    <a href="/explore" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Wines</a>
+                    <a href="/explore" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Pairings</a>
+                    <a href="/explore" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Grapes</a>
+                    <a href="/explore" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Regions</a>
+                    <a href="/explore" className="text-slate-600 hover:text-slate-900 hidden md:flex ml-8">Awards</a>
                 </nav>
             </div>
         </header>
