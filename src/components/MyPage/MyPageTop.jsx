@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Box from "@mui/material/Box";
 import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
@@ -40,14 +41,14 @@ function MyPageTop() {
             alignItems: "center",
           }}
         >
-          <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <Link to='/mypage/wish' sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Box>wish list</Box>
             <BookmarkAddOutlinedIcon color="primary" />
-          </Box>
-          <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          </Link>
+          <Link to='/mypage/settings' sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Box>settings</Box>
             <FolderSharedOutlinedIcon color="primary" />
-          </Box>
+          </Link>
         </Box>
       </Box>
     </>
