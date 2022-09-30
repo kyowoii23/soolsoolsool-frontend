@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes} from "react-router-dom";
+import { Navigate, Route, Routes} from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
@@ -12,12 +12,13 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route exact path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/detail" element={<DetailPage />} />
         <Route path="/explore" element={<ExplorePage />} />
-        <Route path="/mypage/*" exact element={<MyPage />} />
+        <Route path="/mypage" element={<Navigate replace to='/mypage/settings' />} />
+        <Route path="/mypage/*" element={<MyPage /> } />
       </Routes>
     </Layout>
   );
