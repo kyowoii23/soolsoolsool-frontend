@@ -20,7 +20,7 @@ const ExploreButton = (props) => {
         <div>
             <button className='button'
                 style={{
-                    backgroundColor: isActive ? 'brown' : '',
+                    backgroundColor: isActive ? '#1628ba' : '',
                     color: isActive ? 'white' : '',
                 }}
                 onClick={handleClick}
