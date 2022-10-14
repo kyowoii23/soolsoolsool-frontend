@@ -13,6 +13,7 @@ function MyPage() {
         <Routes>
           <Route path="/wish" element={<MyPageBottom category='wish' />}></Route>
           <Route path="/settings" element={<MyPageBottom category='settings' />}></Route>
+          <Route path="/update" element={<MyPageBottom category='update' />}></Route>
         </Routes>
       </Container>
     </div>
