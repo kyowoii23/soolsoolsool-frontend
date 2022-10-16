@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { useState, useRef, useCallback } from 'react'
+
+
 import Slider from "react-slick";
 import MainCard from "../Card/MainCard";
+import useCards from '../../hooks/useCards'
 
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
-import "./Slider.css";
+import "./Slick.css";
 
 
 class ProductSlider extends Component {

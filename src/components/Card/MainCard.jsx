@@ -1,38 +1,65 @@
-import * as React from 'react';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import Stack from '@mui/material/Stack';
+import { forwardRef } from 'react'
+import Box from "@mui/material/Box";
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+import img from '../../assets/복순도가.png'
+import styled from 'styled-components';
 
 
+const ImageSize = styled.img`
+  width: 10vw;
+  height: 15vh;
+`;
 
-const MainCard = props => {
+const MainPost = props => {
+  const { type, name, campany } = props
+
   return (
-    <Card sx={{ 
-        width: 240,
-        maxWidth: 240
-        }}>
-      <CardActionArea>
-            <CardMedia
-            sx={{ height: 500, width: "100%", maxHeight: 500 }}
-            component="img"
-            image={props.imgSrc}
-            alt="green iguana"
-            />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  );
-};
+    <Box sx={{ 
+      padding: "24px", 
+      height: "24vh",
+      border: "1px solid #A6A9AA",
+      borderRadius: "12px",
+      width: "100%",
+      "&:hover .childBox1": {
+          transform: "scale(1.5)",
+          transitionDuration: "0.6s"
+      } }}>
+      <Box sx={{ display: "flex" }}>
+        <Box className='childBox1'>
+          <ImageSize src={img}/>
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+          <Typography variant="h4" gutterBottom sx={{ marginBottom: "-6px" }}>
+              4.5
+          </Typography> 
+          <Stack direction="row" sx={{ display: "flex", alignItems: "center" }}>
+              <StarBorderRoundedIcon color="error" sx={{ marginRight: "-6px" }}/>
+              <StarBorderRoundedIcon color="error" sx={{ marginRight: "-6px" }}/>
+              <StarBorderRoundedIcon color="error" sx={{ marginRight: "-6px" }}/>
+              <StarBorderRoundedIcon color="error" sx={{ marginRight: "-6px" }}/>
+              <StarBorderRoundedIcon color="error" />
+          </Stack>
+          <Typography variant="body1" gutterBottom >
+              160 ratings
+          </Typography> 
+        </Box>
+      </Box>
+      <Box>
+        <Typography variant="h6" gutterBottom sx={{ marginBottom: "0" }}>
+            Type: {type}
+        </Typography>
+        <Typography variant="h5" gutterBottom sx={{ marginBottom: "0" }}>
+            명칭: {name}
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+            제조사 : {campany}
+        </Typography>
+      </Box>
+    </Box>
+  )
+}
 
-export default MainCard;
+export default MainPost

@@ -1,17 +1,9 @@
 import React from "react";
-import styled from '@emotion/styled';
-
-import Slider from '../components/Slider/Slider';
+import Slick from '../components/Slick/Slick';
 import MainButton from '../components/Button/MainButton';
 import Typography from '@mui/material/Typography';
-
-
-const Container = styled.div`
-    margin: 64px;
-    padding: 8px 12px;
-    height: auto;
-    // box-shadow: 3px 3px 5px 5px grey;
-`;
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 
 
 const date = new Date();
@@ -40,7 +32,7 @@ const MainPage = () => {
                 <Typography variant="h8" gutterBottom>
                     Best wines
                 </Typography>
-                <Slider />
+                <Slick />
             </Container>
         </>
     )
