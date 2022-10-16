@@ -16,14 +16,15 @@ const ExploreButton = (props) => {
     };
 
     return (
-        <Button sx={{ color: "#A6A9AA"  }}
+        <Button sx={{ color: "#A6A9AA", width: "6vw" }}
             style={{
-                backgroundColor: isActive ? '#f57c00' : '',
+                backgroundColor: isActive ? '#1565c0' : '',
                 color: isActive ? 'white' : '',
             }}
             onClick={handleClick}
+            variant="outlined"
         >
-            {label}
+            <b>{label}</b>
         </Button>
     )
 }

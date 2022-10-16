@@ -53,10 +53,10 @@ const ExploreSidebar = () => {
 
     return (
         <Container>
-            <Box sx={{ width: '100%', marginBottom: "64px" }} >
+            <Box sx={{ width: '100%', marginBottom: "10vh" }} >
                 <Stack direction="row" spacing={2} sx={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
                     <Typography variant="h5" gutterBottom>
-                        Sool Types
+                        <b>Sool Types</b>
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
                         Select multiple
@@ -73,10 +73,10 @@ const ExploreSidebar = () => {
                     <ExploreButton label={'기타'} />
                 </Stack>
             </Box>
-            <Box sx={{ width: '100%', marginBottom: "64px" }} >
+            <Box sx={{ width: '100%', marginBottom: "10vh" }} >
                 <Stack direction="row" spacing={2} sx={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
                     <Typography variant="h5" gutterBottom>
-                        Price Range
+                        <b>Price Range</b>
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
                         KRW
@@ -102,14 +102,14 @@ const ExploreSidebar = () => {
                         max={200000}
                         step={1000}
                         marks={marks}
-                        color='warning'
+                        color="primary"
                     />
                 </Box>
             </Box>
             <Box sx={{ width: '100%', marginBottom: "64px" }} >
                 <Stack direction="row" spacing={2} sx={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
                     <Typography variant="h5" gutterBottom>
-                        SSSool Average Rating
+                        <b>Sool Average Rating</b>
                     </Typography>
                 </Stack>
                 <FormControl>
@@ -121,40 +121,40 @@ const ExploreSidebar = () => {
                         
                     >
                         <Stack direction="row" sx={{ display: "flex", alignItems: "center" }}>
-                            <FormControlLabel value="4.5" control={<Radio color='warning' />} />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarHalfRoundedIcon fontSize='small' />
+                            <FormControlLabel value="4.5" control={<Radio />} />
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarHalfRoundedIcon fontSize='small' color="error"/>
                             <Typography variant="caption" display="block" gutterBottom sx={{ marginLeft: "10px" }}>
                                 <b>4.5+ </b> Very rare stuff
                             </Typography>
                         </Stack>
                         <Stack direction="row" sx={{ display: "flex", alignItems: "center" }}>
-                            <FormControlLabel value="4.0" control={<Radio color='warning' />} />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarBorderRoundedIcon fontSize='small' />
+                            <FormControlLabel value="4.0" control={<Radio />} />
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarBorderRoundedIcon fontSize='small' color="error"/>
                             <Typography variant="caption" display="block" gutterBottom sx={{ marginLeft: "10px" }}>
                                 <b>4.0+ </b> Good stuff
                             </Typography>
                         </Stack>
                         <Stack direction="row" sx={{ display: "flex", alignItems: "center" }}>
-                            <FormControlLabel value="3.5" control={<Radio color='warning' />} />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarRoundedIcon fontSize='small' />
-                            <StarHalfRoundedIcon fontSize='small' />
-                            <StarBorderRoundedIcon fontSize='small' />
+                            <FormControlLabel value="3.5" control={<Radio />} />
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarHalfRoundedIcon fontSize='small' color="error" sx={{ marginRight: "-4px" }}/>
+                            <StarBorderRoundedIcon fontSize='small' color="error"/>
                             <Typography variant="caption" display="block" gutterBottom sx={{ marginLeft: "10px" }}>
                                 <b>3.5+ </b> Common stuff
                             </Typography>
                         </Stack>
                         <Stack direction="row" sx={{ display: "flex", alignItems: "center" }}>
-                            <FormControlLabel value="anyting" control={<Radio color='warning' />} /> 
+                            <FormControlLabel value="anyting" control={<Radio />} /> 
                             <Typography variant="caption" display="block" >
                                 Any rating
                             </Typography>
