@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getPostsPage } from '../api/axios'
+import { getExplore } from '../api/axios'
 
 const usePosts = (pageNum = 1) => {
     const [results, setResults] = useState([])
@@ -16,7 +16,7 @@ const usePosts = (pageNum = 1) => {
         const controller = new AbortController()
         const { signal } = controller
 
-        getPostsPage(pageNum, { signal })
+        getExplore(pageNum, { signal })
             .then(data => {
                 setResults(prev => [...prev, ...data])
                 setHasNextPage(Boolean(data.length))

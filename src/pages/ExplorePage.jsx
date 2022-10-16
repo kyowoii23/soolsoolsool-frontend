@@ -1,39 +1,23 @@
 import React from "react";
-import styled from '@emotion/styled';
 
 import InfiniteScroll from '../components/InfiniteScroll/InfiniteScroll'
 import ExploreSidebar from "../components/SideBar/ExploreSideBar"
 
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin: 32px;
-    padding: 8px 12px;
-    height: auto;
-    // box-shadow: 3px 3px 5px 5px grey;
-`;
 
-const SideBar = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
-const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
 
 const MainPage = () => {
     return (
         <>
-            <Container>
-                <SideBar>
+            <Container fixed sx={{ marginTop: "30px", color: "#747474", display: "flex"}}>
+                <Box sx={{ width: "35%" }}>
                     <ExploreSidebar />
-                </SideBar>
-                <Content>
+                </Box>
+                <Box sx={{ width: "65%" }}>
                     <InfiniteScroll />
-                </Content>
+                </Box>
             </Container>
         </>
     )
