@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/detail/product/:productId" element={<DetailPage />} />
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/mypage" element={<Navigate replace to='/mypage/settings' />} />
         <Route path="/mypage/*" element={<MyPage /> } />

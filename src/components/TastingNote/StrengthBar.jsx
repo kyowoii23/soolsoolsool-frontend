@@ -35,11 +35,13 @@ const BarText = styled.div`
   justify-content: center;
 `;
 
+// 술이 무슨 맛이 나는지 판단할 방법이 없으니 일단 random 값으로 설정했습니다.
 const data = [
-  { id: 1, taste: "Acidity", strength: "10%" },
-  { id: 2, taste: "sweet", strength: "20%" },
-  { id: 3, taste: "body", strength: "30%" },
-  { id: 4, taste: "spicy", strength: "50%" },
+  { id: 1, taste: "Acidity", strength: Math.floor(Math.random() * (90 - 1) + 1) + "%" },
+  { id: 2, taste: "sweet", strength: Math.floor(Math.random() * (90 - 1) + 1) + "%" },
+  { id: 3, taste: "body", strength: Math.floor(Math.random() * (90 - 1) + 1) + "%" },
+  { id: 4, taste: "spicy", strength: Math.floor(Math.random() * (90 - 1) + 1) + "%" },
+  { id: 5, taste: "sparkling", strength: Math.floor(Math.random() * (90 - 1) + 1) + "%" },
 ];
 
 function StrengthBar() {
