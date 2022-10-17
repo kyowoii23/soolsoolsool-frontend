@@ -4,9 +4,8 @@ import Container from "@mui/material/Container";
 import img from "../../assets/복순도가.png"
 
 const ImageSize = styled.img`
-  width: 288px;
-  height: 288px;
-  margin-top: 80px;
+  width: 100%;
+  height: 100%;
 `;
 
 function DetailImage() {
