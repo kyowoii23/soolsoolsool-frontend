@@ -1,100 +1,105 @@
 import {useState} from 'react';
 
 import './ExploreButton.css'
-import SignalWifi1BarIcon from '@mui/icons-material/SignalWifi1Bar';
-import SignalWifi2BarIcon from '@mui/icons-material/SignalWifi2Bar';
-import SignalWifi3BarIcon from '@mui/icons-material/SignalWifi3Bar';
-import SignalWifi4BarIcon from '@mui/icons-material/SignalWifi4Bar';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-const ExploreButton = () => {
 
+const buttonStyle = {
+    color: "black", 
+    width: "6vw",
+    borderRadius: "16px"
+}
+
+const MainButton = (props) => {
+    const { sx } = props
     const [isActive, setIsActive] = useState(true)
     const [isActive2, setIsActive2] = useState(false)
     const [isActive3, setIsActive3] = useState(false)
     const [isActive4, setIsActive4] = useState(false)
 
-
     const handleClick = () => {
-        // 👇️ toggle
-        setIsActive(current => !current);
+        setIsActive(true);
         setIsActive2(!setIsActive);
         setIsActive3(!setIsActive);
         setIsActive4(!setIsActive);
-
-        // 👇️ or set to true
-        setIsActive(true);
     }; 
     const handleClick2 = () => {
-        // 👇️ toggle
-        setIsActive2(current => !current);
+        setIsActive2(true);
         setIsActive(!setIsActive2);
         setIsActive3(!setIsActive2);
         setIsActive4(!setIsActive2);
-
-        // 👇️ or set to true
-        setIsActive2(true);
     }; 
     const handleClick3 = () => {
-        // 👇️ toggle
-        setIsActive3(current => !current);
+        setIsActive3(true);
         setIsActive2(!setIsActive3);
         setIsActive(!setIsActive3);
         setIsActive4(!setIsActive3);
-
-        // 👇️ or set to true
-        setIsActive3(true);
     }; 
     const handleClick4 = () => {
-        // 👇️ toggle
-        setIsActive4(current => !current);
+        setIsActive4(true);
         setIsActive2(!setIsActive4);
         setIsActive3(!setIsActive4);
         setIsActive(!setIsActive4);
-
-        // 👇️ or set to true
-        setIsActive4(true);
     };    
 
     return (
-        <div>
-            <button className='button'
+        <Stack direction="row" spacing={2} sx={ sx }>
+            <Button sx={ buttonStyle }
                 style={{
-                    backgroundColor: isActive ? '#1628ba' : '',
+                    backgroundColor: isActive ? '#1565c0' : '',
                     color: isActive ? 'white' : '',
                 }}
                 onClick={handleClick}
+                variant="outlined"
             >
-                <SignalWifi1BarIcon fontSize='small' />
-            </button>
-            <button className='button'
+                <AttachMoneyIcon fontSize='small' />
+            </Button>
+            <Button sx={ buttonStyle }
                 style={{
-                    backgroundColor: isActive2 ? '#1628ba' : '',
+                    backgroundColor: isActive2 ? '#1565c0' : '',
                     color: isActive2 ? 'white' : '',
                 }}
                 onClick={handleClick2}
+                variant="outlined"
             >
-                <SignalWifi2BarIcon fontSize='small' />
-            </button>
-            <button className='button'
+                <Stack direction="row" spacing={-1.4} >
+                    <AttachMoneyIcon fontSize='small' />
+                    <AttachMoneyIcon fontSize='small' />
+                </Stack>
+            </Button>
+            <Button sx={ buttonStyle }
                 style={{
-                    backgroundColor: isActive3 ? '#1628ba' : '',
+                    backgroundColor: isActive3 ? '#1565c0' : '',
                     color: isActive3 ? 'white' : '',
                 }}
                 onClick={handleClick3}
+                variant="outlined"
             >
-                <SignalWifi3BarIcon fontSize='small' />
-            </button>
-            <button className='button'
+                <Stack direction="row" spacing={-1.4}>
+                    <AttachMoneyIcon fontSize='small' />
+                    <AttachMoneyIcon fontSize='small' />
+                    <AttachMoneyIcon fontSize='small' />
+                </Stack>
+            </Button>
+            <Button sx={ buttonStyle }
                 style={{
-                    backgroundColor: isActive4 ? '#1628ba' : '',
+                    backgroundColor: isActive4 ? '#1565c0' : '',
                     color: isActive4 ? 'white' : '',
                 }}
                 onClick={handleClick4}
+                variant="outlined"
             >
-                <SignalWifi4BarIcon fontSize='small' />
-            </button>
-        </div>
+                <Stack direction="row" spacing={-1.4}>
+                    <AttachMoneyIcon fontSize='small' />
+                    <AttachMoneyIcon fontSize='small' />
+                    <AttachMoneyIcon fontSize='small' />
+                    <AttachMoneyIcon fontSize='small' />
+                </Stack>
+            </Button>
+        </Stack>
     )
 }
 
-export default ExploreButton
+export default MainButton

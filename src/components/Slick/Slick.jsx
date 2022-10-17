@@ -1,54 +1,56 @@
 import React, { Component } from "react";
-import { useState, useRef, useCallback } from 'react'
-
-
+import { getExplore } from "../../api/axios";
+import styled from 'styled-components';
 import Slider from "react-slick";
-import MainCard from "../Card/MainCard";
-import useCards from '../../hooks/useCards'
-
+import MainPost from "../Post/MainPost";
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
-import "./Slick.css";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
+
+const StyledSlider = styled(Slider)`
+  height: 100%;
+  width: 100%;
+  position: relative;
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }`;
+
+const Pre = styled.div`
+  width: 3vw;
+  height: 3vh;
+  position: absolute;
+  left: -3%;
+  z-index: 3;
+`;
+
+const NextTo = styled.div`
+  width: 3vw;
+  height: 3vh;
+  position: absolute;
+  right: -4.5%;
+  z-index: 3;
+`;
 
 class ProductSlider extends Component {
   constructor() {
     super();
     this.state = {
-      slides: [
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000210&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000211&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000669&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000707&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000056&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000843&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000158&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000147&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000241&targetNm=PRODUCT"
-        },
-        {
-          img: "https://thesool.com/common/imageView.do?targetId=PR00000708&targetNm=PRODUCT"
-        }
-      ]
+      slides: []
     };
   }
+
+  componentDidMount(){
+    getExplore(1)
+      .then((response) => {
+         this.setState({
+            slides: response.slice(0, 20)
+          });
+      })
+    }
 
   render() {
     var settings = {
@@ -58,6 +60,24 @@ class ProductSlider extends Component {
       slidesToShow: 4,
       slidesToScroll: 4,
       initialSlide: 0,
+      prevArrow: (
+        <Pre>
+          <ArrowBackIosIcon 
+            color="primary" 
+            fontSize="large" 
+            sx={{ "&:hover": { transform: "scale(1.2)", transitionDuration: "0.4s" } }}
+          />
+        </Pre>
+      ),
+      nextArrow: (
+        <NextTo>
+          <ArrowForwardIosIcon 
+            color="primary" 
+            fontSize="large"
+            sx={{ "&:hover": { transform: "scale(1.2)", transitionDuration: "0.4s" } }}
+          />
+        </NextTo>
+      ),
       responsive: [
         {
           breakpoint: 1024,
@@ -87,17 +107,15 @@ class ProductSlider extends Component {
     };
 
     return (
-      <div className="container">
-        <Slider {...settings}>
-          {this.state.slides.map((slide, index) => {
-            return (
-              <div key={index}>
-                <MainCard imgSrc={slide.img} />
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
+      <StyledSlider {...settings}>
+        {this.state.slides.map((slide, index) => {
+          return (
+            <div key={index}>
+              <MainPost price={slide.price} type={slide.soolType} name={slide.name} company={slide.company} />
+            </div>
+          );
+        })}
+      </StyledSlider>
     );
   }
 }
