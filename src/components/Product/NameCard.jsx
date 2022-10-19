@@ -1,38 +1,51 @@
 import * as React from "react";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import BasicRating from "../UI/BasicRating";
-
-
+import { useState } from "react";
+import { useEffect } from "react";
+import { getProductDetail } from "../../api/axios";
+import { useParams } from "react-router-dom";
 
 export default function NameCard() {
+  const [data, setData] = useState(null);
+  const param = useParams();
+  console.log(param);
+  console.log(getProductDetail(1));
+
+  useEffect(() => {
+    getProductDetail(param.productId).then((data) => {
+      setData(data);
+    });
+  }, []);
+
+  if (!data) return <>Loading...</>;
   return (
-    // <Card sx={{ minWidth: 200, mt: 4, height: "30vh", bgcolor: "#F8F3F1" }}>
     <>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Boksoon
+        <Typography
+          sx={{ fontSize: 14 }}
+          color="text.secondary"
+          gutterBottom
+        >
+          {data.company}
         </Typography>
-        <Typography variant="h5" component="div">
-          복순도가 막걸리
-        </Typography>
-        <Typography sx={{ mb: 1.5, fontSize: 14 }} color="text.secondary">
-          Average of all users-reported prices
+        <Typography variant="h5" component="div" key={data.id}>
+          <b>{data.name}</b>
         </Typography>
         <br />
         <BasicRating />
-        <Typography component="legend" sx={{color: "#0b6db7"}}>[20 review]</Typography>
+        <Typography component="legend" sx={{ color: "#0b6db7" }}>
+          [20 review]
+        </Typography>
         <br />
-        <Typography variant="body2">주종 : </Typography>
-        <Typography variant="body2">도수 : </Typography>
-        <Typography variant="body2">용량 : </Typography>
+        <Typography variant="body2">주종 : {data.soolType}</Typography>
+        <Typography variant="body2">도수 : {data.degree}</Typography>
+        <Typography variant="body2">용량 : {data.size}ml</Typography>
+        <Typography variant="body2">원재료 : {data.material}</Typography>
+        <br />
+        <Typography variant="body2">제품소개 : {data.info}</Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-      </>
-    // </Card>
+    </>
   );
 }
