@@ -10,16 +10,14 @@ import Box from "@mui/material/Box";
 
 const MainPage = () => {
     return (
-        <>
-            <Container fixed sx={{ marginTop: "30px", color: "#747474", display: "flex"}}>
-                <Box sx={{ width: "35%", marginRight: "32px"}}>
-                    <ExploreSidebar />
-                </Box>
-                <Box sx={{ width: "65%" }}>
-                    <InfiniteScroll />
-                </Box>
-            </Container>
-        </>
+        <Container fixed sx={{ marginTop: "30px", display: "flex"}}>
+            <Box sx={{ width: "35%", marginRight: "32px"}}>
+                <ExploreSidebar />
+            </Box>
+            <Box sx={{ width: "65%" }}>
+                <InfiniteScroll />
+            </Box>
+        </Container>
     )
 };
 

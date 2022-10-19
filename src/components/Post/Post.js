@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 
 
 const ImageSize = styled.img`
-  width: 10vw;
-  height: 15vh;
+  width: 20vw;
+  height: 20vh;
 `;
 
 const Post = forwardRef(({ post }, ref) => {
@@ -19,34 +19,34 @@ const Post = forwardRef(({ post }, ref) => {
         <Link to={`/detail/${post.id}`}>
             <Box sx={{ 
                     display: "flex",
-                    padding: "24px", 
-                    height: "24vh",
+
+                    height: "36vh",
                     marginBottom: "16px",
-                    border: "1px solid #A6A9AA",
+                    border: "1px solid #DCDCDC",
                     borderRadius: "12px",
                     width: "100%",
                     "&:hover": {
-                        animation: "boxyRotation 0.2s infinite linear",
+                        // animation: "boxyRotation 0.2s infinite linear",
                         boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px"
                     },
                     "&:hover .childBox1": {
                         transform: "scale(1.2)",
                         transitionDuration: "0.6s"
                     },
-                    "@keyframes boxyRotation": {
-                        from :{
-                            transform: "rotate(0deg)"
-                        }, 
-                        to :{
-                            transform: "rotate(359deg)"
-                        }
-                    }
+                    // "@keyframes boxyRotation": {
+                    //     from :{
+                    //         transform: "rotate(0deg)"
+                    //     }, 
+                    //     to :{
+                    //         transform: "rotate(359deg)"
+                    //     }
+                    // }
                  }}
             >
                 <Box className='childBox1' sx={{ width: "20%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                     <ImageSize src={img}/>
                 </Box>
-                <Box sx={{ width: "50%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <Box sx={{ width: "50%", display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
                     <Box sx={{ marginLeft: "1vw" }}>
                         <Typography variant="h6" gutterBottom sx={{ marginBottom: "0" }}>
                             Type:{post.soolType}
@@ -64,7 +64,7 @@ const Post = forwardRef(({ post }, ref) => {
                         </Typography>
                     </Box>
                 </Box>
-                <Box sx={{ width: "30%", display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "center" }}>
+                <Box sx={{ width: "30%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                         <Typography variant="h4" gutterBottom sx={{ marginBottom: "-6px" }}>
                             4.5
@@ -76,7 +76,7 @@ const Post = forwardRef(({ post }, ref) => {
                             <StarBorderRoundedIcon color="error" sx={{ marginRight: "-6px" }}/>
                             <StarBorderRoundedIcon color="error" />
                         </Stack>
-                        <Typography variant="body1" gutterBottom >
+                        <Typography variant="body1" gutterBottom sx={{ marginBottom: "16px" }} >
                             160 ratings
                         </Typography> 
                     </Box>

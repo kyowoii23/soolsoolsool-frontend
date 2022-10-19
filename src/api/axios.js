@@ -10,7 +10,12 @@ export const getPostsPage = async (pageParam = 1, options = {}) => {
 }
 
 export const getExplore = async (pageParam = 1, options = {}) => {
-    const response = await api.get('/')
+    const response = await api.get(`/`)
+    return response.data.data
+}
+
+export const getMain = async (pageParam = 1, options = {}) => {
+    const response = await api.get(`/?page=${pageParam}`, options)
     return response.data.data
 }
 
