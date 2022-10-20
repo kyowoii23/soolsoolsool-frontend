@@ -7,6 +7,7 @@ import DetailPage from "./pages/DetailPage";
 import ExplorePage from "./pages/ExplorePage";
 import MyPage from "./pages/MyPage";
 import Layout from "./components/Layout/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/mypage" element={<Navigate replace to='/mypage/settings' />} />
         <Route path="/mypage/*" element={<MyPage /> } />
+        <Route path="*" element={<NotFound /> } />
       </Routes>
     </Layout>
   );
