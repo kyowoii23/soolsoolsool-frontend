@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-import PermIdentitySharpIcon from "@mui/icons-material/PermIdentitySharp";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import HeaderOptionsButton from "../Button/HeaderOptionsButton"
 
 function Search() {
   return (
@@ -94,9 +94,7 @@ const Header = () => {
             >
               로그인
             </Link>
-            <Link href="/mypage" sx={{ color: "#878787" }}>
-              <PermIdentitySharpIcon fontSize={"large"} />
-            </Link>
+              <HeaderOptionsButton />
           </Box>
         </Box>
       </Box>

@@ -21,9 +21,10 @@ const MainPost = props => {
             <Box sx={{
                 padding: "12px", 
                 height: "48vh",
-                border: "1px solid #DCDCDC",
+                border: "2px solid #DCDCDC",
                 borderRadius: "12px",
                 width: "100%",
+                background: "#FAFAFA",
                 "&:hover": {
                     boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px"
                 },
