@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import PriceCard from "./PriceCard";
+// import PriceCard from "./PriceCard";
 import NameCard from "./NameCard";
 import DetailImage from "./DetailImage";
 

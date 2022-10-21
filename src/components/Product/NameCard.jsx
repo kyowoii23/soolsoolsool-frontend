@@ -10,14 +10,12 @@ import { useParams } from "react-router-dom";
 export default function NameCard() {
   const [data, setData] = useState(null);
   const param = useParams();
-  console.log(param);
-  console.log(getProductDetail(1));
 
   useEffect(() => {
     getProductDetail(param.productId).then((data) => {
       setData(data);
     });
-  }, []);
+  }, [param]);
 
   if (!data) return <>Loading...</>;
   return (

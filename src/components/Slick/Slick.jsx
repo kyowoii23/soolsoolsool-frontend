@@ -111,7 +111,7 @@ class ProductSlider extends Component {
         {this.state.slides.map((slide, index) => {
           return (
             <div key={index}>
-              <MainPost price={slide.price} type={slide.soolType} name={slide.name} company={slide.company} />
+              <MainPost id={slide.id} price={slide.price} type={slide.soolType} name={slide.name} company={slide.company} />
             </div>
           );
         })}

@@ -8,6 +8,7 @@ import ExplorePage from "./pages/ExplorePage";
 import MyPage from "./pages/MyPage";
 import SellerPage from "./pages/SellerPage";
 import Layout from "./components/Layout/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/mypage" element={<Navigate replace to='/mypage/settings' />} />
         <Route path="/mypage/*" element={<MyPage /> } />
         <Route path="/seller" element={<SellerPage /> } />
+        <Route path="*" element={<NotFound /> } />
       </Routes>
     </Layout>
   );
