@@ -13,10 +13,10 @@ const ImageSize = styled.img`
 `;
 
 const MainPost = props => {
-  const { type, name, company, price } = props
+  const { type, name, company, price, id } = props
 
   return (
-    <Link to={"/detail"}>
+    <Link to={`/detail/product/${id}`}>
         <Box sx={{ padding: "12px" }}>
             <Box sx={{
                 padding: "12px", 
