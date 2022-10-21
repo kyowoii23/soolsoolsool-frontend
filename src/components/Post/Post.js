@@ -19,11 +19,11 @@ const Post = forwardRef(({ post }, ref) => {
         <Link to={`/detail/${post.id}`}>
             <Box sx={{ 
                     display: "flex",
-
                     height: "36vh",
                     marginBottom: "16px",
-                    border: "1px solid #DCDCDC",
+                    border: "2px solid #DCDCDC",
                     borderRadius: "12px",
+                    background: "#FAFAFA",
                     width: "100%",
                     "&:hover": {
                         // animation: "boxyRotation 0.2s infinite linear",
