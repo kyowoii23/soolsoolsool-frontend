@@ -1,14 +1,6 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import EditIcon from '@mui/icons-material/Edit';
-import Divider from '@mui/material/Divider';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { Button, Menu, MenuItem, Divider, Link, Typography } from '@mui/material';
 import PermIdentitySharpIcon from "@mui/icons-material/PermIdentitySharp";
 
 
@@ -17,11 +9,11 @@ const StyledMenu = styled((props) => (
         elevation={0}
         anchorOrigin={{
             vertical: 'bottom',
-            horizontal: 'right',
+            horizontal: 'left',
         }}
         transformOrigin={{
             vertical: 'top',
-            horizontal: 'right',
+            horizontal: 'left',
         }}
         {...props}
     />
@@ -76,7 +68,7 @@ export default function CustomizedMenus() {
                 disableElevation
                 onClick={handleClick}
             >
-                <PermIdentitySharpIcon fontSize='large' />
+                <PermIdentitySharpIcon fontSize='small' sx={{ color:"black" }}/>
             </Button>
             <StyledMenu
                 id="demo-customized-menu"
@@ -88,25 +80,51 @@ export default function CustomizedMenus() {
                 onClose={handleClose}
             >
                 <MenuItem onClick={handleClose} disableRipple>
-                    <Link to="/mypage">
-                        <EditIcon />
-                        마이 페이지
+                    <Link href="/mypage" underline="none">
+                        <Typography fontSize="small" color="black">회원 정보</Typography>
                     </Link>
                 </MenuItem>
+                <Divider variant="middle" />
                 <MenuItem onClick={handleClose} disableRipple>
-                    <FileCopyIcon />
-                    주문 페이지
-                </MenuItem>
-                <Divider sx={{ my: 0.5 }} />
-                <MenuItem onClick={handleClose} disableRipple>
-                    <Link to='/seller'>
-                        <ArchiveIcon />
-                        판매자 페이지
+                    <Link href="/mypage" underline="none">
+                        <Typography fontSize="small" color="black">주문내역 확인</Typography>
                     </Link>
                 </MenuItem>
+                <Divider variant="middle" />
                 <MenuItem onClick={handleClose} disableRipple>
-                    <MoreHorizIcon />
-                    문의 페이지
+                    <Link href='/mypage' underline="none">
+                        <Typography fontSize="small" color="black">관심 상품</Typography>
+                    </Link>
+                </MenuItem>
+                <Divider variant="middle" />
+                <MenuItem onClick={handleClose} disableRipple>
+                    <Link href="/mypage" underline="none">
+                        <Typography fontSize="small" color="black">고객님을 위한 추천상품</Typography>
+                    </Link>
+                </MenuItem>
+                <Divider variant="middle" />
+                <MenuItem onClick={handleClose} disableRipple>
+                    <Link href="/mypage" underline="none">
+                        <Typography fontSize="small" color="black">회원정보 수정</Typography>
+                    </Link>
+                </MenuItem>
+                <Divider variant="middle" />
+                <MenuItem onClick={handleClose} disableRipple>
+                    <Link href="/mypage" underline="none">
+                        <Typography fontSize="small" color="black">주수록</Typography>
+                    </Link>
+                </MenuItem>
+                <Divider variant="middle" />
+                <MenuItem onClick={handleClose} disableRipple>
+                    <Link href="/mypage" underline="none">
+                       <Typography fontSize="small" color="black">문의내역</Typography>
+                    </Link>
+                </MenuItem>
+                <Divider variant="middle" />
+                <MenuItem onClick={handleClose} disableRipple>
+                    <Link href="/mypage" underline="none">
+                        <Typography fontSize="small" color="black">로그아웃</Typography>
+                    </Link>
                 </MenuItem>
             </StyledMenu>
         </div>

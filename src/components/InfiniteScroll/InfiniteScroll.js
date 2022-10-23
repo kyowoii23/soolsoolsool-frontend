@@ -35,9 +35,9 @@ const InfiniteScroll = () => {
 
     const content = results.map((post, i) => {
         if (results.length === i + 1) {
-            return <Post ref={lastPostRef} key={post.name} post={post} />
+            return <Post ref={lastPostRef} key={i} post={post} />
         }
-        return <Post key={post.name} post={post} />
+        return <Post key={i} post={post} />
     })
 
     return (

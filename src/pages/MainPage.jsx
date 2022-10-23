@@ -4,18 +4,11 @@ import MainButton from '../components/Button/MainButton';
 import Typography from '@mui/material/Typography';
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import styled from 'styled-components';
-import img from "../assets/seoul-nightlife.jpg"
 
-
-const ImageSize = styled.img`
-  width: 100%;
-  height: 320px;
-`;
 
 const date = new Date();
 const day = date.getDay();
-const weekdays = new Array("Suday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+const weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
 
 const MainPage = () => {
     return (
@@ -37,7 +30,6 @@ const MainPage = () => {
                     <Slick />
                 </Box>
             </Container>
-            <ImageSize src={img} />
         </Box>
     )
 };
