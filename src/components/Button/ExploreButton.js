@@ -1,15 +1,16 @@
-import {useState} from 'react';
 import Button from '@mui/material/Button';
 
 
-const ExploreButton = (props) => {
-    const { label } = props
+const ExploreButton = ({handleButtonClick, label, value}) => {
+    // const { label } = props
 
-    const [isActive, setIsActive] = useState(false)
+    // const [isActive, setIsActive] = useState(true)
 
     const handleClick = () => {
         // toggle
-        setIsActive(current => !current);
+        handleButtonClick()
+        console.log(value)
+        // setIsActive(current => !current);
 
         // or set to true
         // setIsActive(true);
@@ -18,8 +19,8 @@ const ExploreButton = (props) => {
     return (
         <Button sx={{ color: "#A6A9AA", width: "6vw" }}
             style={{
-                backgroundColor: isActive ? '#1565c0' : '',
-                color: isActive ? 'white' : '',
+                backgroundColor: value ? '#1565c0' : '',
+                color: value ? 'white' : '',
             }}
             onClick={handleClick}
             variant="outlined"
