@@ -8,7 +8,8 @@ import Box from "@mui/material/Box";
 
 
 
-const MainPage = () => {
+const MainPage = ({props}) => {
+    
     return (
         <Container fixed sx={{ marginTop: "30px", display: "flex"}}>
             <Box sx={{ width: "35%", marginRight: "32px"}}>
