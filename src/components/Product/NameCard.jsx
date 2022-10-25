@@ -1,11 +1,14 @@
 import * as React from "react";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import BasicRating from "../UI/BasicRating";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getProductDetail } from "../../api/axios";
 import { useParams } from "react-router-dom";
+import FavoriteButton from "../Button/FavoriteButton";
+
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import BasicRating from "../UI/BasicRating";
+
 
 export default function NameCard() {
   const [data, setData] = useState(null);
@@ -21,12 +24,15 @@ export default function NameCard() {
   return (
     <>
       <CardContent>
-        <Typography
-          sx={{ fontSize: 14 }}
-          color="text.secondary"
-          gutterBottom
-        >
-          {data.company}
+        <Typography component='div' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <Typography
+            sx={{ fontSize: 14 }}
+            color="text.secondary"
+            gutterBottom
+          >
+            {data.company}
+          </Typography>
+          <Typography component='div'><FavoriteButton data={data.id} /></Typography>
         </Typography>
         <Typography variant="h5" component="div" key={data.id}>
           <b>{data.name}</b>
