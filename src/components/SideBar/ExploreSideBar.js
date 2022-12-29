@@ -38,6 +38,33 @@ const minDistance = 10;
 const ExploreSidebar = () => {
     const [value, setValue] = useState([20000, 150000]);
 
+    const [takju, setTakju] = useState(true);
+    const [yakju, setYakju] = useState(false);
+    const [chungju, setChungju] = useState(false);
+    const [wine, setWine] = useState(false);
+    const [soju, setSoju] = useState(false);
+    const [liquor, setLiquor] = useState(false);
+
+    const handleChangeTakju = () => {
+        setTakju(current => !current);
+    };
+    const handleChangeYakju = () => {
+        setYakju(current => !current);
+    };
+    const handleChangeChungju = () => {
+        setChungju(current => !current);
+    };
+    const handleChangeWine = () => {
+        setWine(current => !current);
+    };
+    const handleChangeSoju = () => {
+        setSoju(current => !current);
+    };
+    const handleChangeLiquor = () => {
+        setLiquor(current => !current);
+    };
+
+
     const handleChange1 = (event, newValue, activeThumb) => {
         if (!Array.isArray(newValue)) {
         return;
@@ -50,6 +77,7 @@ const ExploreSidebar = () => {
         }
     };
 
+    console.log(takju, yakju, chungju, wine, soju, liquor)
 
     return (
         <Container>
@@ -63,14 +91,14 @@ const ExploreSidebar = () => {
                     </Typography>
                 </Stack>
                 <Stack direction="row" spacing={2} sx={{ marginBottom: "12px", display: "flex", justifyContent: "space-around" }} >
-                    <ExploreButton label={'탁 주'} />
-                    <ExploreButton label={'약 주'} />
-                    <ExploreButton label={'청 주'} />
+                    <ExploreButton label={'탁 주'} handleButtonClick={handleChangeTakju} value={takju}/>
+                    <ExploreButton label={'약 주'} handleButtonClick={handleChangeYakju} value={yakju}/>
+                    <ExploreButton label={'청 주'} handleButtonClick={handleChangeChungju} value={chungju}/>
                 </Stack>
                 <Stack direction="row" spacing={2} sx={{ marginBottom: "12px", display: "flex", justifyContent: "space-around" }} >
-                    <ExploreButton label={'과실주'} />
-                    <ExploreButton label={'증류주'} />
-                    <ExploreButton label={'기타'} />
+                    <ExploreButton label={'과실주'} handleButtonClick={handleChangeWine} value={wine}/>
+                    <ExploreButton label={'증류주'} handleButtonClick={handleChangeSoju} value={soju}/>
+                    <ExploreButton label={'기타'} handleButtonClick={handleChangeLiquor} value={liquor}/>
                 </Stack>
             </Box>
             <Box sx={{ width: '100%', marginBottom: "10vh" }} >

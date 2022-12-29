@@ -12,6 +12,11 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import HeaderOptionsButton from "../Button/HeaderOptionsButton"
 
+import { Button,  Stack } from "@mui/material";
+import { SportsBar, LocalBar, LocalDrink, WineBar, Liquor } from "@mui/icons-material";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+
 function Search() {
   return (
     <Paper
@@ -113,7 +118,13 @@ const Header = () => {
             >
               {cookies.refreshToken ? "로그아웃" : "로그인"}
             </Typography>
-              <HeaderOptionsButton />
+            <Button variant="text">
+              <FavoriteBorderOutlinedIcon fontSize='small' sx={{ color:"black" }} />
+            </Button>
+            <Button variant="text">
+              <ShoppingBagOutlinedIcon fontSize='small' sx={{ color:"black" }} />
+            </Button>
+            <HeaderOptionsButton />
           </Box>
         </Box>
       </Box>
@@ -129,9 +140,23 @@ const Header = () => {
             alignItems: 'center'
           }}
         >
-            <Link href="/explore" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold', height: '100%', display: 'flex', alignItems: 'center'}}>전체상품</Link>
-            <Link href="/explore" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold', height: '100%', display: 'flex', alignItems: 'center', marginLeft: '20px'}}>베스트</Link>
-            <Link href="/explore" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold', height: '100%', display: 'flex', alignItems: 'center', marginLeft: '20px'}}>신상품</Link>
+          <Stack direction="row" spacing={8}>
+            <Link href="/explore" underline="hover" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold'}}>
+              <Typography fontSize="small" color="black"><SportsBar fontSize="small" color="black"/><b> 탁주(막걸리)</b></Typography>
+            </Link>
+            <Link href="/explore" underline="hover" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold'}}>
+              <Typography fontSize="small" color="black"><LocalDrink fontSize="small" color="black"/><b> 증류주(소주)</b></Typography>
+            </Link>
+            <Link href="/explore" underline="hover" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold'}}>
+              <Typography fontSize="small" color="black"><LocalBar fontSize="small" color="black"/><b> 청주•약주(맑은술)</b></Typography>
+            </Link>
+            <Link href="/explore" underline="hover" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold'}}>
+              <Typography fontSize="small" color="black"><WineBar fontSize="small" color="black"/><b> 과실주(한국식 와인)</b></Typography>
+            </Link>
+            <Link href="/explore" underline="hover" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold'}}>
+              <Typography fontSize="small" color="black"><Liquor fontSize="small" color="black"/><b> 리큐르•기타주류</b></Typography>
+            </Link>
+          </Stack>
         </Box>
       </Box>
     </Box>

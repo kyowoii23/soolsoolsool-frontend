@@ -13,6 +13,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Checkbox from '@mui/material/Checkbox';
 
 
+
 export default function NameCard() {
   const [data, setData] = useState(null);
   const [checked, setChecked] = useState(false);
@@ -39,12 +40,15 @@ export default function NameCard() {
   return (
     <>
       <CardContent>
-        <Typography
-          sx={{ fontSize: 14 }}
-          color="text.secondary"
-          gutterBottom
-        >
-          {data.company}
+        <Typography component='div' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <Typography
+            sx={{ fontSize: 14 }}
+            color="text.secondary"
+            gutterBottom
+          >
+            {data.company}
+          </Typography>
+          <Typography component='div'><FavoriteButton data={data.id} /></Typography>
         </Typography>
         <Typography variant="h5" component="div" key={data.id}>
           <b>{data.name}</b>
