@@ -1,8 +1,11 @@
 import logo from "../../assets/soolsoolsool.png";
 import styled from "styled-components";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
@@ -43,8 +46,22 @@ const Image = styled.img`
 `;
 
 const Header = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(['refreshToken'])
+  const navigate = useNavigate()
+
+  const logoutHandler = () => {
+    if(!cookies.refreshToken) {
+      navigate('/login')
+    } else {
+      localStorage.removeItem('userId')
+      removeCookie('refreshToken')
+      alert("로그아웃 되었습니다.")
+      window.location.replace('/')
+    }
+  }
+
   return (
-    <Box sx={{ width: "100%", height: "120px", boxShadow: "1" }}>
+    <Box sx={{ width: "100%", height: "120px", borderBottom: '1px solid lightgray' }}>
       <Box
         sx={{
           width: "100%",
@@ -84,16 +101,18 @@ const Header = () => {
               alignItems: "center",
             }}
           >
-            <Link
+            <Typography
               href="/login"
               sx={{
                 marginRight: "15px",
                 color: "#878787",
                 textDecoration: "none",
+                cursor: "pointer"
               }}
+              onClick={logoutHandler}
             >
-              로그인
-            </Link>
+              {cookies.refreshToken ? "로그아웃" : "로그인"}
+            </Typography>
               <HeaderOptionsButton />
           </Box>
         </Box>
@@ -110,7 +129,9 @@ const Header = () => {
             alignItems: 'center'
           }}
         >
-            <Link href="/explore" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold'}}>전체상품</Link>
+            <Link href="/explore" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold', height: '100%', display: 'flex', alignItems: 'center'}}>전체상품</Link>
+            <Link href="/explore" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold', height: '100%', display: 'flex', alignItems: 'center', marginLeft: '20px'}}>베스트</Link>
+            <Link href="/explore" sx={{textDecoration: 'none', color: '#3E3E3E', fontWeight: 'bold', height: '100%', display: 'flex', alignItems: 'center', marginLeft: '20px'}}>신상품</Link>
         </Box>
       </Box>
     </Box>

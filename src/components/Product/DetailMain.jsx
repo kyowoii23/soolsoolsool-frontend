@@ -7,12 +7,12 @@ import DetailImage from "./DetailImage";
 
 const DetailMain = () => {
   return (
-    <Box sx={{ bgcolor: "#F8F3F1", height: "330px", marginTop: '1px' }}>
+    <Box sx={{ bgcolor: "#F8F3F1", height: "auto", maxHeight: "430px", minHeight: '330px' }}>
       <Grid container spacing={0}>
-        <Grid item xs={3} sx={{ height: "330px" }}>
+        <Grid item xs={3} sx={{ height: "auto", maxHeight: "430px" }}>
           <DetailImage />
         </Grid>
-        <Grid item xs={9} sx={{ height: "330px" }}>
+        <Grid item xs={9} sx={{ height: "auto", maxHeight: "430px" }}>
           <NameCard />
         </Grid>
         {/* <Grid item xs={4} sx={{ height: "330px" }}>

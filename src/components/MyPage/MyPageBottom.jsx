@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { getProductDetail } from "../../api/axios";
 
 import Box from "@mui/material/Box";
 import TextField from '@mui/material/TextField';
 
 function MyPageBottom(props) {
+  const [data, setData] = useState(null);
+
+
   if(props.category === 'settings'){
     return (
       <>
@@ -42,6 +47,7 @@ function MyPageBottom(props) {
           <Box sx={{height: '40px', borderBottom: '1px solid #F9D537'}}>
               <Box sx={{fontWeight: 'bold'}}>My wish list</Box>
           </Box>
+          {/* <Box>{data}</Box> */}
         </Box>
       </>
     );
